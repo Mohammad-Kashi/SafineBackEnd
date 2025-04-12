@@ -1,0 +1,25 @@
+syntax = "proto3";
+option csharp_namespace = "SafineGRPC";
+import "shared.proto";
+
+service SafineQueryService {
+	rpc GetLocationInfo(shared.StringIdArg) returns (shared.LocationMessage);
+	rpc GetManagerLocations(shared.Empty) returns (LocationMessages);
+	rpc GetLocationsBySearchArg(SearchArg) returns (LocationMessages);
+	rpc GetRemainingTimeInLine(shared.StringIdArg) returns (shared.IntIdArg);
+	rpc GetTags(shared.Empty) returns (GetTagsResponseProto);
+}
+
+message GetTagsResponseProto {
+	repeated string TagName = 1;
+}
+
+message LocationMessages {
+	repeated shared.LocationMessage Locations = 1;
+}
+
+message SearchArg {
+	string SearchText = 1;
+	repeated string BusinessTags = 2;
+	bool IsOpen = 3;
+}

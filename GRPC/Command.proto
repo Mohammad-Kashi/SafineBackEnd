@@ -1,0 +1,16 @@
+syntax = "proto3";
+option csharp_namespace = "SafineGRPC";
+import "shared.proto";
+
+service SafineCommandService {
+	rpc AddLocation(shared.LocationMessage) returns (shared.StringIdArg);
+	rpc EditLocation(shared.LocationMessage) returns (BoolIdArg);
+	rpc RemoveLocation(shared.StringIdArg) returns (BoolIdArg);
+	rpc AddPersonToList(shared.StringIdArg) returns (BoolIdArg);
+	rpc RemovePersonFromList(shared.StringIdArg) returns (BoolIdArg);
+	rpc RemoveFirstPersonFromList(shared.StringIdArg) returns (shared.StringIdArg);
+}
+
+message BoolIdArg {
+	bool Id = 1;
+}

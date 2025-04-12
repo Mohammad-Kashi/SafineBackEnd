@@ -1,0 +1,53 @@
+syntax = "proto3";
+package shared;
+option csharp_namespace = "SafineGRPC";
+
+message LocationMessage {
+	string Name = 1;
+	repeated TimeRangeMessage WorkingShifts = 2;
+	int32 AverageCustomerTimeMinutes = 3;
+	repeated string BusinessTags = 4;
+	string Description = 5;
+	repeated Days WorkingDays = 6;
+	string Location = 7;
+	repeated DayMessage OffDays = 8;
+	repeated string PeopleInLine = 9;
+	string Id = 10;
+}
+
+message TimeRangeMessage {
+	TimeMessage Start = 1;
+	TimeMessage End = 2;
+}
+
+message TimeMessage {
+	int32 Hour = 1;
+	int32 Minute = 2;
+}
+
+enum Days {
+	Saturday = 0;
+	Sunday = 1;
+	Monday = 2;
+	Tuesday = 3;
+	Wednesday = 4;
+	Thursday = 5;
+	Friday = 6;
+}
+
+message DayMessage {
+	int32 Month = 1;
+	int32 DayOfMonth = 2;
+}
+
+message StringIdArg {
+	string Id = 1;
+}
+
+message Empty {
+
+}
+
+message IntIdArg {
+	int32 Id = 1;
+}

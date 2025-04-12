@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/GRPC/bin
+/GRPC/obj
+/Mongo/bin
+/Mongo/obj
+/SafineBackEnd/bin
+/SafineBackEnd/obj
+/SafineBackEnd/publish
